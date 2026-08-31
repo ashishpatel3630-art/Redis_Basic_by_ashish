@@ -17,5 +17,14 @@ app.post("/emails" , async( req , res)=>{
         createdAt: new Date().toDateString()
     }
     await redis.lpush(QUEUE_KEY, JSON.stringify(job));
+    res.json({
+        queued : true ,
+        job
+    });
     
-})
+});
+
+app.get("/email/process-one", async( req , res)=>{
+    
+
+});
